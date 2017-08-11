@@ -110,11 +110,11 @@ int main(void)
 		inet_ntop(_address.ss_family,
 			get_in_addr((struct sockaddr *)&_address),
 			s, sizeof s);
-		printf("server: got connection from %s\n", s);
+		printf("host: got connection from %s\n", s);
 
 		    char* file_to_transfer = "/home/tron/chichi/send.txt";
 		    char sendbuff[LENGTH]; /
-		    printf("[Server] Sending %s to the contianer...", file_to_transfer);
+		    printf("[host] Sending %s to the container...", file_to_transfer);
 		    FILE *fs = fopen(file_to_transfer, "r");
 		    if(fs == NULL)
 		    {
@@ -136,7 +136,7 @@ int main(void)
 		    }
 		    printf("File sent!................\n");
 		    close(new_fd);
-		    printf("[Server] Connection with container closed. Host will wait now...\n");
+		    printf("[Host] Connection with container closed. Host will wait now...\n");
 		    while(waitpid(-1, NULL, WNOHANG) > 0);
 
 	}
